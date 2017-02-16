@@ -16,7 +16,8 @@
 var clickedElements = new Array();
 
 $(document).click(function(){
-    console.log("testDiv".id);
+    console.log("Hello?");
+    
 });
 
 // $(document).ready(function(){
