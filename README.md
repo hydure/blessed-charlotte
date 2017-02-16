@@ -1,7 +1,7 @@
 # blessed-charlotte
 DE Hack U 5 Student Repository
 
-Python code base used to scrape data from a designated website.
+javascript code base used to scrape data from a designated website.
 
 This Chrome plug-in is under active development and will continue to be modified and improved over time. The current release is an "alpha."
 
