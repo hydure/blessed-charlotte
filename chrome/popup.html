@@ -1,12 +1,4 @@
 <!doctype html>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <!--
  This page is shown when the extension button is clicked, because the
@@ -41,7 +33,7 @@
       .new-button {
         position: absolute;
         bottom: 15px;
-        right: 20px;
+        right: 35px;
         width: 30px;
         height: 30px;
         text-align: center;
@@ -58,7 +50,7 @@
         max-width: 400px;
       }
     </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+    <script src="vendor/angular.min.js"></script>
     <!--
       - JavaScript and HTML must be in separate files: see our Content Security
       - Policy documentation[1] for details and explanation.
@@ -68,46 +60,19 @@
     <script src="popup.js"></script>
     
   </head>
-  <body>
+  <body ng-app="charlotte">
     <div class="new-button">
       <a href="#">
-            <span class="glyphicon glyphicon-plus-sign"></span>
+            <img src= "plus-sign.png">
       </a>
     </div>
-    <div class="modules">
-      <div class="items">
-        <div>
-          Name: Charlotte
-        </div>
-        <div> 
-          Description: Web Scraper
-        </div>
-      </div>
-      <div class="items">
-        <div>
-          Name: Charlotte
-        </div>
-        <div> 
-          Description: Web Scraper
-        </div>
-      </div>
-      <div class="items">
-        <div>
-          Name: Charlotte
-        </div>
-        <div> 
-          Description: Web Scraper
-        </div>
-      </div>
-      <div class="items">
-        <div>
-          Name: Charlotte
-        </div>
-        <div> 
-          Description: Web Scraper
-        </div>
+    <div class="modules" ng-controller="itemController">
+      <div class="items" ng-repeat="item in items">
+        <div> Name: {{item.name}} </div>
+        <div> Description: {{item.desc}} </div>
       </div>
     </div>
+    <script src="controllers.js"></script>
   </body>
 </html>
 
