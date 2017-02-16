@@ -3,7 +3,7 @@
   "manifest_version": 2,
   "name": "Blessed-Charlotte",
   "version": "1.0",
-  "description": "This scrapes desired data from a website."
+  "description": "This scrapes desired data from a website.",
 
   "browser_action": {
     "default_icon": "icon.png",
@@ -16,7 +16,7 @@
   "content_scripts": [{
       "matches" : ["<all_urls>"],
        "js": ["vendor/jquery-3.1.1.js", "highlighter.js"]
-  }]
+  }],
   
   "permissions": [
     "activeTab",
