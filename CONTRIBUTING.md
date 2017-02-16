@@ -1,8 +1,7 @@
 # How to contribute
 
-Third-party patches are essential for keeping Puppet great. We simply can't
-access the huge number of platforms and myriad configurations for running
-Puppet. We want to keep it as easy as possible to contribute changes that
+Third-party patches are essential for keeping the #blessed project great. 
+We want to keep it as easy as possible to contribute changes that
 get things working in your environment. There are a few guidelines that we
 need contributors to follow so that we can have a chance of keeping on
 top of things.
@@ -29,7 +28,7 @@ top of things.
 * Make sure your commit messages are in the proper format.
 
 ````
-    (PUP-1234) Make the example in CONTRIBUTING imperative and concrete
+    (123) Make the example in CONTRIBUTING imperative and concrete
 
     Without this patch applied the example commit message in the CONTRIBUTING
     document is not a concrete example.  This is a problem because the
@@ -58,7 +57,7 @@ a ticket number.
     (doc) Add documentation commit example to CONTRIBUTING
 
     There is no example for contributing a documentation commit
-    to the Puppet repository. This is a problem because the contributor
+    to the blessed-charlotte repository. This is a problem because the contributor
     is left to assume how a commit of this nature may appear.
 
     The first line is a real life imperative statement with '(doc)' in
@@ -85,15 +84,9 @@ to detect in advance.
 If the code change results in a test failure, we will make our best effort to
 correct the error. If a fix cannot be determined and committed within 24 hours
 of its discovery, the commit(s) responsible _may_ be reverted, at the
-discretion of the committer and Puppet maintainers. This action would be taken
+discretion of the committer and #blessed project maintainers. This action would be taken
 to help maintain passing states in our testing pipelines.
 
-The original contributor will be notified of the revert in the Jira ticket
-associated with the change. A reference to the test(s) and operating system(s)
-that failed as a result of the code change will also be added to the Jira
-ticket. This test(s) should be used to check future submissions of the code to
-ensure the issue has been resolved.
-
 ### Summary
-* Changes resulting in test pipeline failures will be reverted if they cannot
-  be resolved within one business day.
+* Changes resulting in test pipeline failures maybe be reverted if they cannot
+  be resolved.
