@@ -18,23 +18,69 @@ var clickedElements = new Array();
 document.addEventListener("click",function(e){
     // when you shift + click select all the elements of the same class 
     if(e.shiftKey){
-        // if (clickedElements.includes())
         className = e.target.className;
-        console.log(className);
+
         var elements = document.getElementsByClassName(className);
-        console.log(elements);
+        // console.log(elements);
+        // if (clickedElements.includes())
+        counter = 0;
         for (i = 0; i < elements.length; i++){
+            console.log("iterative counter = ", counter);
+            console.log("i = ", i);
+            // console.log(elements[i]);
             console.log(elements[i]);
-            clickedElements.push(e.target.id);
-            $(elements[i]).css("background-color", "ffff00");
+            if(clickedElements.includes(elements[i])){
+                counter ++;
+            }
+        }
+        console.log("counter = ", counter);
+        console.log("elements.length = ", elements.length);
+        
+        // all selected, all must be deselected
+        if (counter == elements.length){
+            console.log("enter case 1");
+            for (i = 0; i < elements.length; i++){
+                // console.log(elements[i]);
+                index = clickedElements.indexOf(elements[i]);
+                console.log(index);
+                clickedElements.splice(index, 1);
+                console.log(clickedElements);
+                $(elements[i]).css("background-color", "");
+            }
+        }
+        
+        // some selected, deselect all and re-select all
+        else if (counter > 0){
+            for (i = 0; i < elements.length; i++){
+                // console.log(elements[i]);
+                index = clickedElements.indexOf(elements[i]);
+                // console.log(index);
+                clickedElements.splice(index, 1);
+                // console.log(clickedElements);
+                $(elements[i]).css("background-color", "");
+            }
+            for (i = 0; i < elements.length; i++){
+                // console.log(elements[i]);
+                clickedElements.push(e.target);
+                $(elements[i]).css("background-color", "#ffff00");
+            }
         }
 
+        // none selected, all must be selected
+        else{
+            for (i = 0; i < elements.length; i++){
+                // console.log(elements[i]);
+                clickedElements.push(elements[i]);
+                $(elements[i]).css("background-color", "#ffff00");
+            }
+            console.log(clickedElements);
+        }
     }
     else{
         if (e.target == document.body){}
-        else if (clickedElements.includes(e.target.id)){
-        // console.log(e.target.id);
-        index = clickedElements.indexOf(e.target.id);
+        else if (clickedElements.includes(e.target)){
+        // console.log(e.target);
+        index = clickedElements.indexOf(e.target);
         // console.log(index);
         clickedElements.splice(index, 1);
         // console.log(clickedElements);
@@ -42,7 +88,7 @@ document.addEventListener("click",function(e){
         // console.log(clickedElements);
         }
         else{
-            clickedElements.push(e.target.id);
+            clickedElements.push(e.target);
             $(e.target).css("background-color", "ffff00");
             // console.log(clickedElements);
         } 
@@ -85,7 +131,7 @@ jQuery.fn.extend({
 
 
 // $(document).click(function(){
-//     console.log("testDiv".id);
+//     console.log("testDiv");
 // });
 
 // $(document).ready(function(){
