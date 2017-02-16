@@ -13,14 +13,26 @@
 // make an array that stores what the user clicked on and 
 // when the item is in the array 
 
-// when you shift + click select all the elements of the same class 
-
-
 var clickedElements = new Array();
 
 document.addEventListener("click",function(e){
-    // console.log($(e.target).getPath());
-    if (clickedElements.includes(e.target.id)){
+    // when you shift + click select all the elements of the same class 
+    if(e.shiftKey){
+        // if (clickedElements.includes())
+        className = e.target.className;
+        console.log(className);
+        var elements = document.getElementsByClassName(className);
+        console.log(elements);
+        for (i = 0; i < elements.length; i++){
+            console.log(elements[i]);
+            clickedElements.push(e.target.id);
+            $(elements[i]).css("background-color", "ffff00");
+        }
+
+    }
+    else{
+        if (e.target == document.body){}
+        else if (clickedElements.includes(e.target.id)){
         // console.log(e.target.id);
         index = clickedElements.indexOf(e.target.id);
         // console.log(index);
@@ -28,13 +40,15 @@ document.addEventListener("click",function(e){
         // console.log(clickedElements);
         $(e.target).css("background-color", "");
         // console.log(clickedElements);
-
+        }
+        else{
+            clickedElements.push(e.target.id);
+            $(e.target).css("background-color", "ffff00");
+            // console.log(clickedElements);
+        } 
     }
-    else{
-        clickedElements.push(e.target.id);
-        $(e.target).css("background-color", "ffff00");
-        // console.log(clickedElements);
-    } 
+    // console.log($(e.target).getPath());
+    
 })
 
 
@@ -65,6 +79,11 @@ jQuery.fn.extend({
     }
 });
 
+
+
+
+
+
 // $(document).click(function(){
 //     console.log("testDiv".id);
 // });
@@ -75,7 +94,6 @@ jQuery.fn.extend({
 //     console.log(clickedElements);
 // });
 
-clicked = true;
 // originalColor = $(".testDiv").css("background-color");
 
 // $(".testDiv").click(function(){
