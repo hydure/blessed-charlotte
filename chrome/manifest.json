@@ -1,0 +1,13 @@
+{
+  // Required
+  "manifest_version": 2,
+  "name": "Blessed-Charlotte",
+  "version": "0.1.1",
+
+  //"browser_action": {},
+  //"page_action": {},
+  "content_scripts": [{
+      "matches" : ["<all_urls>"],
+       "js": ["vendor/jquery-3.1.1.js", "highlighter.js"]
+  }]
+}
