@@ -13,6 +13,11 @@
 // make an array that stores what the user clicked on and 
 // when the item is in the array 
 
+// *** click one elements, then select all, then when you try to deselect all doesn't work ***
+// if no class or id, when do select all it should select that 1 element
+
+// things can have multiple classes - select anything with any classes in common
+
 var clickedElements = new Array();
 
 
@@ -40,7 +45,6 @@ document.addEventListener("click",function(e){
         
         // all selected, all must be deselected
         if (counter == elements.length){
-            console.log("enter case 1");
             for (i = 0; i < elements.length; i++){
                 // console.log(elements[i]);
                 index = clickedElements.indexOf(elements[i]);
@@ -63,7 +67,7 @@ document.addEventListener("click",function(e){
             }
             for (i = 0; i < elements.length; i++){
                 // console.log(elements[i]);
-                clickedElements.push(e.target);
+                clickedElements.push(elements[i]);
                 $(elements[i]).css("background-color", "#ffff00");
             }
         }
