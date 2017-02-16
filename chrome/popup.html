@@ -1,4 +1,13 @@
 <!doctype html>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <!--
  This page is shown when the extension button is clicked, because the
  "browser_action" field in manifest.json contains the "default_popup" key with
@@ -9,8 +18,37 @@
     <title>Getting Started Extension's Popup</title>
     <style>
       body {
+        padding: 0;
+        margin: 0;
         font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
         font-size: 100%;
+        width:300px;
+        height: 350px;
+        overflow-y: scroll;
+      }
+      .modules {
+        max-height: 100%;
+        overflow-y: auto;
+      }
+      .items {
+        padding: 5px;
+        margin: 5px;
+        font-size: 18px;
+      }
+      .items:nth-child(n+2){
+        border-top: 2px solid grey;
+      }
+      .new-button {
+        position: absolute;
+        bottom: 15px;
+        right: 20px;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        vertical-align: middle;
+        color: antiquewhite;
+        font-weight: bold;
+        font-size: 30px;
       }
       #status {
         /* avoid an excessively wide status text */
@@ -20,7 +58,7 @@
         max-width: 400px;
       }
     </style>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
     <!--
       - JavaScript and HTML must be in separate files: see our Content Security
       - Policy documentation[1] for details and explanation.
@@ -28,10 +66,48 @@
       - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
      -->
     <script src="popup.js"></script>
+    
   </head>
   <body>
-    <div id="status"></div>
-    <img id="image-result" hidden>
+    <div class="new-button">
+      <a href="#">
+            <span class="glyphicon glyphicon-plus-sign"></span>
+      </a>
+    </div>
+    <div class="modules">
+      <div class="items">
+        <div>
+          Name: Charlotte
+        </div>
+        <div> 
+          Description: Web Scraper
+        </div>
+      </div>
+      <div class="items">
+        <div>
+          Name: Charlotte
+        </div>
+        <div> 
+          Description: Web Scraper
+        </div>
+      </div>
+      <div class="items">
+        <div>
+          Name: Charlotte
+        </div>
+        <div> 
+          Description: Web Scraper
+        </div>
+      </div>
+      <div class="items">
+        <div>
+          Name: Charlotte
+        </div>
+        <div> 
+          Description: Web Scraper
+        </div>
+      </div>
+    </div>
   </body>
 </html>
 
