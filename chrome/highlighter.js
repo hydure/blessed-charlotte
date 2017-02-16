@@ -15,6 +15,8 @@
 
 var clickedElements = new Array();
 
+
+
 document.addEventListener("click",function(e){
     // when you shift + click select all the elements of the same class 
     if(e.shiftKey){
@@ -77,6 +79,7 @@ jQuery.fn.extend({
 
         return path;
     }
+
 });
 
 
