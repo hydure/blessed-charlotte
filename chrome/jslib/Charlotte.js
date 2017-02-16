@@ -87,9 +87,9 @@ class Spider{
     }
 
     export(){
-        
+
     }
 }
 
-var spider = new Charlotte();
-    spider.mapSite("http://www.wm.edu/", 500).then(function(res){ console.log( res ); });
+//var spider = new Charlotte();
+//    spider.mapSite("http://www.wm.edu/", 500).then(function(res){ console.log( res ); });
