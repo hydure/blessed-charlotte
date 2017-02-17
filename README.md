@@ -1,8 +1,12 @@
-
-![alt tag](https://github.com/dominionenterprises/blessed-charlotte/blob/master/download.png)  ![alt-tag](https://github.com/dominionenterprises/blessed-charlotte/blob/master/charlotte.jpg)
-
 # Charlotte Webscraper
 *A HackU5 project created by the #blessed team. Event sponsored by Dominion Enterprises.*
+
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/nimelepbpejjlbmoobocpfnjhihnpked.svg)]()
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/stars/nimelepbpejjlbmoobocpfnjhihnpked.svg)]()
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
+[![Github All Releases](https://img.shields.io/github/downloads/atom/atom/total.svg)]()
+
+![alt tag](https://github.com/dominionenterprises/blessed-charlotte/blob/master/download.png)  ![alt-tag](https://github.com/dominionenterprises/blessed-charlotte/blob/master/charlotte.jpg)
 
 ### Features
 
