@@ -1,5 +1,5 @@
 
-![alt tag](https://github.com/dominionenterprises/blessed-charlotte/blob/master/download.png)  ![alt-tag](https://github.com/dominionenterprises/blessed-charlotte/blob/master/charles.jpg)
+![alt tag](https://github.com/dominionenterprises/blessed-charlotte/blob/master/download.png)  ![alt-tag](https://github.com/dominionenterprises/blessed-charlotte/blob/master/charlotte.jpg)
 
 # DE HackU5 Student Repository
 
