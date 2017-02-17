@@ -2,107 +2,86 @@
  * Highlights an element once clicked
  */
 
-// ** this one works but we need to alter css in this case
-// $(".testDiv").click(
-//     function(){
-//     $(this).toggleClass("highlight");
-//         console.log("click");
-//     }
-//     );
-
-// make an array that stores what the user clicked on and 
-// when the item is in the array 
-
-// *** click one elements, then select all, then when you try to deselect all doesn't work ***
-// if no class or id, when do select all it should select that 1 element
-
-// things can have multiple classes - select anything with any classes in common
-
+/**
+ * @cssuh
+ * Initialize empty array to be populated with elements that have been clicked
+ */
 var clickedElements = new Array();
 
 
+/**
+ * @cssuh
+ * This function will be a click listener that highlights elements that have been clicked on - 
+ * single clicks toggle selection of single elements, and shift clicks toggle selection of 
+ * elements of the same class.
+ */
 
-document.addEventListener("click",function(e){
-    // when you shift + click select all the elements of the same class 
+$ (document).click(function(e){
+    // if shift key is pressed during click
     if(e.shiftKey){
         className = e.target.className;
-
+        // populate an array of elements with same class name
         var elements = document.getElementsByClassName(className);
-        // console.log(elements);
-        // if (clickedElements.includes())
+
+        //counts how many from elements list have been already clicked
         counter = 0;
         for (i = 0; i < elements.length; i++){
-            console.log("iterative counter = ", counter);
-            console.log("i = ", i);
-            // console.log(elements[i]);
-            console.log(elements[i]);
             if(clickedElements.includes(elements[i])){
                 counter ++;
             }
         }
-        console.log("counter = ", counter);
-        console.log("elements.length = ", elements.length);
         
-        // all selected, all must be deselected
+        // case 1: all selected, all must be deselected
         if (counter == elements.length){
             for (i = 0; i < elements.length; i++){
-                // console.log(elements[i]);
                 index = clickedElements.indexOf(elements[i]);
-                console.log(index);
                 clickedElements.splice(index, 1);
-                console.log(clickedElements);
                 $(elements[i]).css("background-color", "");
             }
         }
         
-        // some selected, deselect all and re-select all
+        // case 2: some selected, deselect all and re-select all
         else if (counter > 0){
+            // remove all selected from selected list 
             for (i = 0; i < elements.length; i++){
-                // console.log(elements[i]);
                 index = clickedElements.indexOf(elements[i]);
-                // console.log(index);
                 clickedElements.splice(index, 1);
-                // console.log(clickedElements);
                 $(elements[i]).css("background-color", "");
             }
+            // add all elements of same class to selected list
             for (i = 0; i < elements.length; i++){
-                // console.log(elements[i]);
                 clickedElements.push(elements[i]);
                 $(elements[i]).css("background-color", "#ffff00");
             }
         }
 
-        // none selected, all must be selected
+        // case 3: none selected, all must be selected
         else{
+            // add all elements of same class to selected class
             for (i = 0; i < elements.length; i++){
-                // console.log(elements[i]);
                 clickedElements.push(elements[i]);
                 $(elements[i]).css("background-color", "#ffff00");
             }
-            console.log(clickedElements);
         }
     }
+    // if shift key is not pressed during click
     else{
+        // do nothing if the user clicks the body of the document
         if (e.target == document.body){}
+        // remove element from selected elements array if is already inside the array
         else if (clickedElements.includes(e.target)){
-        // console.log(e.target);
         index = clickedElements.indexOf(e.target);
-        // console.log(index);
         clickedElements.splice(index, 1);
-        // console.log(clickedElements);
         $(e.target).css("background-color", "");
-        // console.log(clickedElements);
         }
+        // add element to selected elements array 
         else{
             clickedElements.push(e.target);
             $(e.target).css("background-color", "ffff00");
-            // console.log(clickedElements);
         } 
     }
-    // console.log($(e.target).getPath());
     
-})
-
+});
 
 jQuery.fn.extend({
     getPath: function () {
@@ -133,58 +112,3 @@ jQuery.fn.extend({
 });
 
 
-
-
-
-
-// $(document).click(function(){
-//     console.log("testDiv");
-// });
-
-// $(document).ready(function(){
-//     var id = $("#testDiv").attr("id");
-//     clickedElements.push(id);
-//     console.log(clickedElements);
-// });
-
-// originalColor = $(".testDiv").css("background-color");
-
-// $(".testDiv").click(function(){
-//     if(clicked == true){
-//         $(this).css("background-color", "ffff00");
-//         clicked = false;
-//         console.log("click true");
-//     }
-//         // var original = "background-color";
-//     else{
-//         $(this).css("background-color", "");
-//         clicked = true;
-//         console.log("click false");
-//     }
-
-    
-
-//     }
-//     );
-
-
-
-// $(".testDiv").click(function() {
-//     $(this).show().effect('Highlights');
-//     console.log("click");
-
-// });
-
-
-// $(".testDiv").click(function(){
-//     $(this).toggleClass("background","red");
-//     console.log("click");
-// });
-
-// $("p").on("click", function(){
-//     $("p").css("background-color", "yellow");
-//     console.log("click");
-// })
-
-
-// console.log($('body'));
