@@ -21,7 +21,7 @@
 ![](preview-readme-cropped.gif)
 
 ### How to Select Elements 
-![](site-map-preview-cropped)
+![](site-map-preview-cropped.gif)
 
 ### Requirements
 
