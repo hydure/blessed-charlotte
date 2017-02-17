@@ -40,6 +40,25 @@ class Charlotte{
         return true;
     }
     /**
+     * Performs data collection and exports data to file
+     */
+    static convert2JSON(as, data){
+        switch(as ? as.toLowerCase() : "json"){
+            case "csv":
+                return Papa.unparse(data);
+                break;
+            case "xml":
+                break;
+            case "yaml":
+            case "yml":
+                break;
+            case "json":
+            default:
+                return data.toString();
+                break;
+        }
+    }
+    /**
      * Map a website
      */
     mapSite(url, max){
@@ -96,23 +115,6 @@ class Spider{
      */
     querySelector(str){
         document.querySelector(str);
-    }
-    /**
-     * Performs data collection and exports data to file
-     */
-    export(as){
-        switch(as ? as.toLowerCase() : "json"){
-            case "csv":
-                return Papa.unparse(this.web);
-                break;
-            case "xml":
-                break;
-            case "yaml":
-            case "yml":
-                break;
-            default:
-                break;
-        }
     }
 }
 

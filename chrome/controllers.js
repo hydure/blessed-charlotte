@@ -7,6 +7,30 @@ app.controller("itemController", function($scope) {
     $scope.items = [];
     $scope.site_map;
 
+    $scope.export = function(data, type){
+        var res = Charlotte.convert2JSON(type || "csv", data.map(function(a){
+            return {
+                key : a.key,
+                value : a.trueVal};
+        }));
+
+        function download(filename, text) {
+            var pom = document.createElement('a');
+            pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+            pom.setAttribute('download', filename);
+
+            if (document.createEvent) {
+                var event = document.createEvent('MouseEvents');
+                event.initEvent('click', true, true);
+                pom.dispatchEvent(event);
+            }
+            else {
+                pom.click();
+            }
+        }
+        download("file.csv", res);
+        //console.log(res);
+    }
     $scope.getStatus = function(){
         return $scope.status;
     }

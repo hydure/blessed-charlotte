@@ -169,11 +169,12 @@ module-close{
     margin : 15px 0px;
 }
 .invput.key{
-    width : 75px;
+    max-width : 75px;
     padding-right : 5px;
 }
 invput.value{
     height : 150px;
+    width : 250px;
 }
 .invput.key, .invput.value{
     flex : 1 1 auto;
