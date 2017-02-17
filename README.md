@@ -17,6 +17,12 @@
  * Notification of specific website changes
  * Supports deep web penetration searching (e.g. finding hidden webpage links and easter eggs)
 
+### How to Select Elements 
+![](preview-readme-cropped.gif)
+
+### How to Select Elements 
+![](site-map-preview-cropped)
+
 ### Requirements
 
 Google Chrome web browser and internet access. This extension should work with the latest version of Google's Chrome browser: 55.0.2883. 

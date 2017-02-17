@@ -1,0 +1,4 @@
+# Convert mp4 to gif (requires ffmpeg)
+ffmpeg -i preview-readme.mp4 -vf scale=800:-1 -r 10 -f image2pipe -vcodec ppm - | convert -delay 10 -layers Optimize -loop 0 - preview-readme.gif
+ffmpeg -i site-map-preview.mp4 -vf scale=800:-1 -r 10 -f image2pipe -vcodec ppm - | convert -delay 10 -layers Optimize -loop 0 - site-map-preview.gif
+Cropped using: http://www.iloveimg.com/crop-image/crop-gif
