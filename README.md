@@ -19,7 +19,7 @@
 
 ### How to Scrape All Links from a Page
 
-This shows you how to generate a site map using Charlotte
+This shows you how to generate a site map using Charlotte <br><br>
 ![](site-map-preview-cropped.gif)
 
 ### How to Select Elements 
