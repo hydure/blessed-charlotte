@@ -46,14 +46,14 @@
             <input placeholder="Value" class="invput value" data-ng-model="data[$index].value" data-ng-change="changeIngredient($index)">
           </div>
         </div>
-        <button class="create-button" ng-click="createItem(curr_data); toggleNewWindow('.new-thing')">Create</button>
+        <button class="create-button" ng-click="createItem(curr_data); toggleNewWindow('.new-thing')">Save</button>
       </div>
       <div class="instructions" ng-hide="items.length">
         <p> No modules yet. Click "New" to add one. </p>
       </div>
       <a href="#" class="item" ng-repeat="item in items" ng-click="toggleNewWindow('.new-thing', item)">
         <div>
-          <div class="type-img"></div>
+          <div class="type-img"><img src="images/bell.png" style="width:100%"></div>
         </div>
         <div class="item-inner">
           <div> {{item.name}} </div>

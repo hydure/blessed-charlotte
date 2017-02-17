@@ -7,6 +7,8 @@
  * Initialize empty array to be populated with elements that have been clicked
  */
 var highlightClass = 'charlotte-web-highlit';
+var excludeString = ".charlotte-highlighter, .charlotte-highlighter *, body, html, #context-menu-layer, .context-menu-list, .context-menu-root";
+var selectors = [];
 var hasUI = false;
 
 var h_controls = document.createElement('div');
@@ -20,25 +22,37 @@ function toggleUI(){
          $('.highlighter-close').click(function(){
             DEACTIVATE();
          });
+         $('li.context-menu-item>span').addClass('context-menu-charlotte');
     }
     else
         document.body.removeChild(h_controls);
 }
 
+/**
+ * Click Handler for "selection mode"
+ */
 var handler = function(e){
-    //e.preventDefault();
+    if(e.target == document.body ) return;
     var target = $(e.target);
-    if(e.altKey){ //inteligent select
+    // alt click tries to "intelligently" select data
+    if(e.altKey){ 
         $("."+highlightClass).toggleClass(highlightClass);
-        console.log(target.attr('class'));
-        $("[class='"+target.attr('class')+"']").not('body, html').toggleClass( highlightClass );
-    }
-    else if(e.ctrlKey){
+        selectors = [];
+        selectors.push("[class='"+target.attr('class')+"']");
+        $("[class='"+target.attr('class')+"']").not(excludeString).toggleClass( highlightClass );
+    }else if(e.ctrlKey){
         target.toggleClass( highlightClass );
-    }else{
-        $("."+highlightClass).toggleClass(highlightClass);
-        target.not('body, html').toggleClass( highlightClass );
+        selectors.push(target.getPath());
     }
+    else{
+        if(!target.attr('class')|| (target.attr('class') && target.attr('class').search('context-menu') == -1) ) {
+            $("."+highlightClass).toggleClass(highlightClass);
+            $(target).not(excludeString).toggleClass( highlightClass );
+            selectors = [];
+            selectors.push(target.getPath());
+        }
+    }
+    return false;
 }
 
 var ACTIVATE = function(){
@@ -59,11 +73,53 @@ chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
     if (request.status == "activate"){
         ACTIVATE();
-        sendResponse({farewell: "goodbye"});
-        
+        sendResponse({farewell: "goodbye"});   
     }
 });
+/**
+ * Context Menu that pops up on right click
+ * allows the user to 
+ */
+$(function(){
+    $.contextMenu({
+        selector: "."+highlightClass, 
+        callback: function(key, options) {
+            switch(key){
+                case "MFS":
+                case "ASM":
+                    // TODO: Maintain selectors
+                    var module = {
+                        name : (document.querySelector('title') && document.querySelector('title').innerText) || "",
+                        description : window.location.href,
+                        url : window.location.href,
+                        data : selectors.map(function(a){
+                            return {
+                                key : a,
+                                value : a
+                            }
+                        })
+                    }
+                    chrome.storage.sync.get(["blessed-charlotte-webcrawler"], function(items){
+                        if(!items["blessed-charlotte-webcrawler"]||!(items["blessed-charlotte-webcrawler"]instanceof Array)) {
+                            items = [module]
+                        }else{ 
+                            items = items['blessed-charlotte-webcrawler']; 
+                            items.push(module); 
+                        };
+                            chrome.storage.sync.set({"blessed-charlotte-webcrawler":items}, function(){});
+                    });
+                    break;
+            }
+        },
+        items: {
+            "MFS": {name: "New Module From Selection(s)" },
+            "ASM": {name: "Watch Selected Fields" },
+        }
+    });
 
+});
+
+/**Adds getPath function to jquery selected elements */
 jQuery.fn.extend({
     getPath: function () {
         var path, node = this;
@@ -86,7 +142,6 @@ jQuery.fn.extend({
             path = name + (path ? '>' + path : '');
             node = parent;
         }
-
         return path;
     }
 

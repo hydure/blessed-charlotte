@@ -34,6 +34,9 @@ app.controller("itemController", function($scope) {
     }
 
     $scope.removeModule = function(item){
+        removeFromStorageByIndex(this.items.indexOf(item), function(){
+            $scope.$apply();
+        });
         this.items.splice(this.items.indexOf(item),1);
     }
 
@@ -43,4 +46,20 @@ app.controller("itemController", function($scope) {
             $scope.$apply();
         });
     }
+    
+    chrome.storage.sync.get(["blessed-charlotte-webcrawler"], function(items){
+        $scope.items = items["blessed-charlotte-webcrawler"] || [];
+        console.log($scope.items);
+        $scope.$apply();
+    });
 });
+
+function removeFromStorageByIndex(i, cb){
+    chrome.storage.sync.get(["blessed-charlotte-webcrawler"], function(items){
+        items = items["blessed-charlotte-webcrawler"] || [];
+        items.splice(i,1);
+        chrome.storage.sync.set({"blessed-charlotte-webcrawler":items},function(){
+            cb();
+        })
+    });
+}
