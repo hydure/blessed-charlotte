@@ -7,7 +7,12 @@
  * Initialize empty array to be populated with elements that have been clicked
  */
 var hightlightClass = 'charlotte-web-highlit';
-
+(function(){
+    var h_controls = document.createElement('div');
+    h_controls.classList.add("charlotte-highlighter");
+    h_controls.innerHTML = "<div class=''><button> Scrape </button> <button> Close </button> </div>"
+    document.body.appendChild(h_controls);
+})();
 var handler = function(e){
     //e.preventDefault();
     var target = $(e.target);
@@ -23,6 +28,7 @@ var handler = function(e){
         target.not('body, html').toggleClass( hightlightClass );
     }
 }
+
 var ACTIVATE = function(){
     $(document).click(handler);
 }
@@ -32,18 +38,17 @@ var DEACTIVATE = function(){
     $(document).off("click", handler);
 }
 
+/**
+ * Messsage Listener
+ */
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
     if (request.status == "activate"){
         ACTIVATE();
         sendResponse({farewell: "goodbye"});
-    }
-    else if( request.status == "deactivate" ){
-        DEACTIVATE();
-        sendResponse({farewell: "goodbye"});
+        
     }
 });
-
 
 jQuery.fn.extend({
     getPath: function () {

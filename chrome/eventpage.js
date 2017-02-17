@@ -1,57 +1,73 @@
-//ACTIVATE();
+/**
+ * Javascript file for context menu.
+ */
 
-var parentMenuItem = {
+var charlotteMenuItem = {
     "id": "charlotte",
     "title": "Charlotte",
-    "contexts": ["all"]
-}
-
-var childActivate = {
-    "type": "checkbox",
-    "id": "activate",
-    "title": "Activate",
     "contexts": ["all"],
-    "parentId": "charlotte",
-    "checked": false,
-    "onclick" : activateOnClick
+    "onclick": charlotteOnClick
 }
 
-var childScrape = {
-    "id": "scrape",
-    "title": "Scrape",
-    "contexts": ["all"],
-    "parentId": "charlotte",
-//    "onClick" : "scrapeOnClick"
-}
-
-function activateOnClick() {
-    if(childActivate.checked == false){
-        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-            chrome.tabs.sendMessage(tabs[0].id, {status: "activate"}, function(response) {
-                //console.log(response.farewell);
-         });
-        });
-        childActivate.checked = true;
-    }
-    else{
-        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-            chrome.tabs.sendMessage(tabs[0].id, {status: "deactivate"}, function(response) {
-                //console.log(response.farewell);
-         });
-        });
-        childActivate.checked = false;
-    }
-    
-}
-
-function scrapeOnClick() {
+function charlotteOnClick() {
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        chrome.tabs.sendMessage(tabs[0].id, {status: "scrape"}, function(response) {
-            //console.log(response.farewell);
+        chrome.tabs.sendMessage(tabs[0].id, {status: "activate"}, function(response) {
+                // Activates clicker and creates div
         });
     });
 }
 
-chrome.contextMenus.create(parentMenuItem);
-chrome.contextMenus.create(childActivate);
-chrome.contextMenus.create(childScrape);
+chrome.contextMenus.create(charlotteMenuItem);
+
+// var childActivate = {
+//     "type": "checkbox",
+//     "id": "activate",
+//     "title": "Activate",
+//     "contexts": ["all"],
+//     "parentId": "charlotte",
+//     "checked": false,
+//     "onclick" : activateOnClick
+// }
+
+// var childScrape = {
+//     "id": "scrape",
+//     "title": "Scrape",
+//     "contexts": ["all"],
+//     "parentId": "charlotte",
+//     "onclick" : scrapeOnClick
+// }
+
+// function activateOnClick() {
+//     if (childActivate.checked == false) {
+//         console.log("YEAAAHHHHHHHHHHHHHHHHHH");
+//         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+//             chrome.tabs.sendMessage(tabs[0].id, {status: "activate"}, function(response) {
+//                 // Activates clicker
+//          });
+//         });
+//         childActivate.checked = true;
+//     } else {
+//         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+//             chrome.tabs.sendMessage(tabs[0].id, {status: "deactivate"}, function(response) {
+//                 // Deactivates clicker
+//             });
+//         });
+//         childActivate.checked = false;
+//     }
+// }
+
+// function scrapeOnClick() {
+//     if (childActivate.checked == false) {
+//         // INSERT TOAST HERE telling user to check Activate
+//         console.log("TOAST");
+//     } else {
+//         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+//             chrome.tabs.sendMessage(tabs[0].id, {status: "scrape"}, function(response) {
+//                 // Begin Scraping
+//             });
+//         });
+//     }
+// }
+
+//chrome.contextMenus.create(childActivate);
+//chrome.contextMenus.create(childScrape);
