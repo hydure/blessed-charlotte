@@ -85,8 +85,10 @@ class Spider{
     querySelector(str){
         document.querySelector(str);
     }
-
-    export(){
+    /**
+     * Performs data collection and exports data to file
+     */
+    export(as){
 
     }
 }

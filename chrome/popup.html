@@ -7,9 +7,9 @@
  -->
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Getting Started Extension's Popup</title>
     <link rel="stylesheet" href="style.css">
-    <script src="vendor/angular.min.js"></script>
     <!--
       - JavaScript and HTML must be in separate files: see our Content Security
       - Policy documentation[1] for details and explanation.
@@ -17,20 +17,47 @@
       - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
      -->
     <script src="popup.js"></script>
+    <script src="vendor/jquery-3.1.1.js"></script>
     <script src="vendor/jquery-ui.min.js"></script>
+    <script src="vendor/angular.min.js"></script>
     
   </head>
   <body ng-app="charlotte">
-    <div class="new-button">
-      <a href="#">
-        <img src= "plus-sign.png">
+    <div class="section title"> <img src="images/logo.png"> </div>
+    <div class="section modules" ng-controller="itemController">
+      <div class="module new-thing">
+        <div class="module-close" ng-click="toggleNewWindow('.new-thing')">Back</div>
+          <div class="header">
+            <input placeholder="Untitled" value=""> <select></select>
+          </div>
+          <div class="data-row">
+            <input> <input>
+          </div>
+          <div class="data-row">
+            <input> <input>
+          </div>
+      </div>
+      <div class="instructions" ng-hide="items.length">
+        <p> No modules yet. Click "New" to add one. </p>
+      </div>
+      <a href="#" class="item" ng-repeat="item in items" ng-click="toggleNewWindow('.new-thing', item)">
+        <div>
+          <div class="type-img"></div>
+        </div>
+        <div class="item-inner">
+          <div> {{item.name}} </div>
+          <div> {{item.desc}} </div>
+        </div>
+        <div class="delete" ng-click="removeModule(item)">×</div>
       </a>
     </div>
-    <div class="modules" ng-controller="itemController">
-      <a href="#" class="item" ng-repeat="item in items">
-        <div> Name: {{item.name}} </div>
-        <div> Description: {{item.desc}} </div>
-      </a>
+    <div class="section bottom" ng-controller="itemController">
+      <button class="ui-button">Home</button>
+      <button class="ui-button">Tools</button>
+      <button class="ui-button" ng-click="toggleNewWindow('.new-thing')">New</button>
+    </div>
+    <!-- -->
+
     </div>
     <script src="controllers.js"></script>
   </body>
