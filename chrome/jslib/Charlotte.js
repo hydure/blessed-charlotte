@@ -7,7 +7,6 @@
  */
 class Charlotte{
     constructor(){
-        this.queue = [];
     }
 
     crawlTo(url){
@@ -76,6 +75,10 @@ class Spider{
         this.web = []; // things collected by the spider
     }
 
+    toCSV(){
+
+    }
+
     capture(str){
 
     }
@@ -89,9 +92,20 @@ class Spider{
      * Performs data collection and exports data to file
      */
     export(as){
-
+        switch(as ? as.toLowerCase() : "json"){
+            case "csv":
+                break;
+            case "xml":
+                break;
+            case "yaml":
+            case "yml":
+                break;
+            default:
+                break;
+        }
     }
 }
 
-//var spider = new Charlotte();
-//    spider.mapSite("http://www.wm.edu/", 500).then(function(res){ console.log( res ); });
+var spider = new Charlotte();
+//console.log(spider);
+    //spider.mapSite("http://www.wm.edu/", 500).then(function(res){ console.log( res ); });
