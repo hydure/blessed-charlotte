@@ -1,8 +1,11 @@
 var app = angular.module("charlotte", []);
      
 app.controller("itemController", function($scope) {
+    $scope.crawler = new Charlotte();
+    $scope.map_url;
     $scope.status = "home"; // window status
     $scope.items = [];
+    $scope.site_map;
 
     $scope.getStatus = function(){
         return $scope.status;
@@ -32,5 +35,12 @@ app.controller("itemController", function($scope) {
 
     $scope.removeModule = function(item){
         this.items.splice(this.items.indexOf(item),1);
+    }
+
+    $scope.mapSite = function(){
+        $scope.crawler.mapSite($scope.map_url, 500).then(function(arr){
+            $scope.site_map = arr;
+            $scope.$apply();
+        });
     }
 });

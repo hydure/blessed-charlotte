@@ -21,6 +21,14 @@
     <div class="section modules" ng-controller="itemController">
       <div class="module tools">
         <div class="module-close" ng-click="toggleNewWindow('.tools')">Back</div>
+        <div class="module-content">
+          <div>
+            <input placeholder="Website" ng-model="map_url"><button ng-click="mapSite()">Map</button>
+          </div>
+          <div class="links-content">
+            <a href="{{site}}" ng-repeat="site in site_map" class='map-url'>{{site}}</a>
+          </div>
+        </div>
       </div>
       <div class="module new-thing">
         <div class="module-close" ng-click="toggleNewWindow('.new-thing')">Back</div>
@@ -30,7 +38,7 @@
               <input placeholder="Title" class="invput data-title-input" ng-model="curr_data.name">
             </div>
             <div class="data-row data-description">
-              <textarea class="invput data-description-input" ng-model="curr_data.description"></textarea>
+              <textarea class="invput data-description-input" ng-model="curr_data.description" placeholder="Describe the purpose of your module here"></textarea>
             </div>
           </div>
           <div class="data-row data-fields" data-ng-repeat="data in curr_data.data track by $index" >
@@ -62,8 +70,8 @@
     <!-- -->
 
     </div>
-    <script src="controllers.js"></script>
     <script src="jslib/Charlotte.js"></script>
+    <script src="controllers.js"></script>
   </body>
 </html>
 

@@ -106,6 +106,6 @@ class Spider{
     }
 }
 
-var spider = new Charlotte();
+//var spider = new Charlotte();
 //console.log(spider);
     //spider.mapSite("http://www.wm.edu/", 500).then(function(res){ console.log( res ); });
