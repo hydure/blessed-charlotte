@@ -18,6 +18,8 @@ Plug-in users can specify what fields they want the plug-in to scrape for and th
 
 ### How to download:
 
+While this extension is not deployed, simply go to the repository using this link: https://github.com/dominionenterprises/blessed-charlotte and clone the repository on your computer.
+
 Once deployed onto the Chrome Web Store, visit the Chrome Web Store at https://chrome.google.com/webstore/category/extensions .
 Then search for Charlotte's Web Scraper. Once you find it, click the "+ Add to Chrome" button.
 
