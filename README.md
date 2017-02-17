@@ -23,8 +23,7 @@ Google Chrome web browser and internet access. This extension should work with t
 
 ### How to Install
 
-Once deployed onto the Chrome Web Store, visit the Chrome Web Store at https://chrome.google.com/webstore/category/extensions .
-Then search for Charlotte's Web Scraper. Once you find it, click the "+ Add to Chrome" button.
+Once deployed onto the Chrome Web Store, visit the [Chrome Web Store](https://chrome.google.com/webstore/category/extensions). Then search for Charlotte Web Scraper. Once you find it, click the "+ Add to Chrome" button.
 
 You can build from source by going to the repository using this link: https://github.com/dominionenterprises/blessed-charlotte and clone the repository on your computer.
 
