@@ -10,7 +10,7 @@
  * Robust element matching
  * Exportable .csv, .JSON types
  * Notification of specific website changes
- * Supports deep website-crawling (e.g. finding hidden webpage links and easter eggs)
+ * Supports deep web penetration searching (e.g. finding hidden webpage links and easter eggs)
 
 ### Requirements
 
