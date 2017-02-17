@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Getting Started Extension's Popup</title>
+    <link rel="stylesheet" href="style.css">
+    <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
+     -->
+    <script src="popup.js"></script>
+    <script src="vendor/jquery-3.1.1.js"></script>
+    <script src="vendor/jquery-ui.min.js"></script>
+    <script src="vendor/angular.min.js"></script>
+    
+  </head>
+  <body ng-app="charlotte">
+    <div class="section title"> <img src="images/logo.png"> </div>
+    <div class="section modules" ng-controller="itemController">
+      <div class="module tools">
+        <div class="module-close" ng-click="toggleNewWindow('.tools')">Back</div>
+        <div class="module-content">
+          <div>
+            <input placeholder="Website" ng-model="map_url"><button ng-click="mapSite()">Map</button>
+          </div>
+          <div class="links-content">
+            <a href="{{site}}" ng-repeat="site in site_map" class='map-url'>{{site}}</a>
+          </div>
+        </div>
+      </div>
+      <div class="module new-thing">
+        <div class="module-close" ng-click="toggleNewWindow('.new-thing')">Back</div>
+        <div class="module-content">
+          <div class="header">
+            <div class="data-row data-title">
+              <input placeholder="Title" class="invput data-title-input" ng-model="curr_data.name">
+            </div>
+            <div class="data-row data-description">
+              <textarea class="invput data-description-input" ng-model="curr_data.description" placeholder="Describe the purpose of your module here"></textarea>
+            </div>
+          </div>
+          <div class="data-row data-fields" data-ng-repeat="data in curr_data.data track by $index" >
+            <input placeholder="Field" class="invput key" ng-model="data.key" > 
+            <div class="invput value">{{data.trueVal}}</div>
+          </div>
+        </div>
+        <div class='item-controls'>
+          <button class="create-button" ng-click="export(curr_data.data)">Export</button>
+          <button class="create-button" ng-click="createItem(curr_data); toggleNewWindow('.new-thing')">Save</button>
+        </div>
+      </div>
+      <div class="instructions" ng-hide="items.length">
+        <p> No modules yet. Click "New" to add one. </p>
+      </div>
+      <a href="#" class="item" ng-repeat="item in items" ng-click="toggleNewWindow('.new-thing', item)">
+        <div>
+          <div class="type-img"><img src="images/bell.png" style="width:100%"></div>
+        </div>
+        <div class="item-inner">
+          <div class='item-name'> {{item.name | limitTo:20}} <span ng-if="item.name.length > 20">...</span> </div> 
+          <div class='item-descr'> {{item.description | limitTo:25}} <span ng-if="item.description.length > 25">...</span> </div>
+        </div>
+        <div class="delete" ng-click="removeModule(item)">×</div>
+      </a>
+    </div>
+    <div class="section bottom" ng-controller="itemController">
+      <button class="ui-button">Home</button>
+      <button class="ui-button" ng-click="toggleNewWindow('.tools')">Tools</button>
+      <button class="ui-button" ng-click="toggleNewWindow('.new-thing')">New</button>
+    </div>
+    </div>
+    <script src="jslib/Charlotte.js"></script>
+    <script src="controllers.js"></script>
+  </body>
+</html>
+

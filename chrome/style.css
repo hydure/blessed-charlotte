@@ -1,0 +1,189 @@
+body {
+    display : flex;
+    flex-direction : column;
+    justify-content : space-between;
+    padding: 0;
+    margin: 0;
+    font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+    font-size: 100%;
+    width:350px;
+    height: 450px;
+}
+.section{
+}
+.title{
+    display : flex;
+    flex-direction : row;
+    justify-content : center;
+    padding : 5px;
+    padding-bottom : 20px;
+    height : 60px;
+    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.2);
+    z-index:999;
+}
+.title > img{
+    height : 150%;
+}
+.instructions{
+    color : rgba(0,0,0,.6);
+    margin : auto;
+    display : flex;
+    flex-direction : column;
+    justify-content : center;
+    align-items : center;
+    width : 100%;
+    height : 100%;
+    text-align : center;
+}
+.modules {
+    flex : 1 1 auto;
+    overflow-y: auto;
+    background-color : #f3f3f3;
+}
+.bottom{
+    display : flex;
+    flex-direction : row;
+    justify-content : space-around;
+    height : 60px;
+    box-shadow: 0px -1px 2px 0px rgba(0, 0, 0, 0.2);
+}
+.item {
+    position:relative;
+    display : flex !important;
+    flex-direction : row;
+    padding : 10px;
+    background-color : white;
+    text-decoration : none;
+    text-decoration-style: none;
+    color : inherit;
+    display : block;
+    font-size: 18px;
+    box-shadow: 5px 2px 3px 0px rgba(0, 0, 0, 0.2);
+}
+.delete{
+    display : none;
+    position : absolute;
+    right : 10px;
+    top : 5px;
+    color: #333;
+}
+.item:hover .delete{
+    display : block;
+}
+.item:nth-child(n+2) {
+    border-top: 1px solid #f2f2f2;
+}
+.type-img{
+    width : 70px;
+    height : 70px;
+}
+.ui-button{
+    background-color : transparent;
+    border : none;
+    flex : 1;
+}
+.ui-button:nth-child(n+2){
+    border-left : 1px solid rgba(0,0,0,.3);
+}
+#status {
+    /* avoid an excessively wide status text */
+    white-space: pre;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 400px;
+}
+.module{
+    flex-direction : column;
+}
+.data-row{
+    display : flex;
+    flex-direction : row;
+}
+.module input{}
+.module-close{
+    width : 100%;
+    height : 20px;
+}
+.module{
+    display : none;
+    justify-content : space-between;
+    position : absolute;
+    top : 0px;
+    left : 0px;
+    width : 100%;
+    height : 100%;
+    background-color: white;
+    z-index : 99999;
+}
+.module-content{
+    flex : 1 1 auto;
+}
+module-close{
+    margin : 5px;
+    cursor: default;    
+}
+.module-close:hover{
+    background-color :rgba(0,0,0,.05)
+}
+.module.open{
+    display : flex ;
+}
+.data-title{
+    display : flex;
+    justify-content: center;
+    margin-top : 20px;
+}
+.data-description-input{
+    text-align : center;
+    width : 100%;
+}
+.data-title-input{
+    width : 100%;
+    font-size : 1.5em;
+    text-align : center;
+}
+.data-fields{
+    display : flex;
+    margin-top : 10px;
+}
+.data-fields input{
+    flex : 1 1 auto;
+    font-size : 1.2em;
+}
+.invput{
+    border: 1px solid transparent;
+}
+.links-content{
+    height : 400px;
+    padding: 5px;
+    overflow : auto;
+}
+.map-url{
+    display : block;
+}
+.data-fields{
+    display : flex;
+    flex-direction : row;
+    justify-content : space-around;
+    padding : 0px 10px;
+    margin : 15px 0px;
+}
+.invput.key{
+    max-width : 75px;
+    padding-right : 5px;
+}
+invput.value{
+    height : 150px;
+    width : 250px;
+}
+.invput.key, .invput.value{
+    flex : 1 1 auto;
+}
+.item-controls{
+    display : flex;
+    flex-direction : row;
+    justify-content : center;
+}
+.item-controls button{
+    flex : 1 1 auto;
+}

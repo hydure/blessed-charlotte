@@ -1,0 +1,21 @@
+.charlotte-web-highlit{
+    background-color : yellow;
+    border : 2px solid gold;
+}
+
+.charlotte-highlighter{
+    
+    position : fixed;
+    right : 10px;
+    bottom : 10px;
+}
+.charlotte-highlighter button{
+    color :darkred;
+    padding: 2px 4px 5px 4px;
+    background-color:floralwhite; 
+    box-shadow : 0px 3px 5px 1px rgba(0,0,0,.2);
+}
+.charlotte-highlighter button:hover{
+    color : #000000;
+    background-color: gold; 
+}
