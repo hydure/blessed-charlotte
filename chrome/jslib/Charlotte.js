@@ -107,8 +107,13 @@ class Spider{
     }
 
     capture(str){
+        //console.log(str);
         //this.web.push({this.doc.querySelectorAll(str)})
-        return this.doc.querySelectorAll(str);
+        //var m = $(str);//.find('*').contents().filter(function () { return this.nodeType === 3; });
+        //console.log(m);
+        //return m[0];
+        return this.doc.querySelectorAll(str)[0].textContent ;
+        //return m;
     }
     /**
      * Finds an element and returns information(?) about it

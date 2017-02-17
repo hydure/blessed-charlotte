@@ -56,10 +56,10 @@ app.controller("itemController", function($scope) {
             if(data.url){
                 $scope.crawler.crawlTo(data.url).then(function(spider){
                     data.data.map(function(a){
-                        a.trueVal = spider.capture(a.value)[0].innerText;
-                        $scope.$apply();
-                        console.log(a.trueVal);
+                        var m = spider.capture(a.value);
+                        a.trueVal = m;
                     });
+                    $scope.$apply();
                 });
             }
         }
