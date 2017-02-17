@@ -6,36 +6,49 @@
  * @cssuh
  * Initialize empty array to be populated with elements that have been clicked
  */
-var hightlightClass = 'charlotte-web-highlit';
-(function(){
-    var h_controls = document.createElement('div');
+var highlightClass = 'charlotte-web-highlit';
+var hasUI = false;
+var ACTIVATE = function(){
+    $(document).click(handler);
+    toggleUI();
+}
+
+var DEACTIVATE = function(){
+    $("."+highlightClass).toggleClass(highlightClass);
+    $(document).off("click", handler);
+    toggleUI();
+}
+
+var h_controls = document.createElement('div');
     h_controls.classList.add("charlotte-highlighter");
-    h_controls.innerHTML = "<div class=''><button> Scrape </button> <button> Close </button> </div>"
-    document.body.appendChild(h_controls);
-})();
+    h_controls.innerHTML = "<div class=''><button> Scrape </button> <button class='highlighter-close'> Close </button> </div>";
+
+function toggleUI(){
+    hasUI = !hasUI;
+    if(hasUI){
+         document.body.appendChild(h_controls);
+         $('.highlighter-close').click(function(){
+            DEACTIVATE();
+         });
+    }
+    else
+        document.body.removeChild(h_controls);
+}
+
 var handler = function(e){
     //e.preventDefault();
     var target = $(e.target);
     if(e.altKey){ //inteligent select
-        $("."+hightlightClass).toggleClass(hightlightClass);
+        $("."+highlightClass).toggleClass(highlightClass);
         console.log(target.attr('class'));
-        $("[class='"+target.attr('class')+"']").not('body, html').toggleClass( hightlightClass );
+        $("[class='"+target.attr('class')+"']").not('body, html').toggleClass( highlightClass );
     }
     else if(e.ctrlKey){
-        target.toggleClass( hightlightClass );
+        target.toggleClass( highlightClass );
     }else{
-        $("."+hightlightClass).toggleClass(hightlightClass);
-        target.not('body, html').toggleClass( hightlightClass );
+        $("."+highlightClass).toggleClass(highlightClass);
+        target.not('body, html').toggleClass( highlightClass );
     }
-}
-
-var ACTIVATE = function(){
-    $(document).click(handler);
-}
-
-var DEACTIVATE = function(){
-    $("."+hightlightClass).toggleClass(hightlightClass);
-    $(document).off("click", handler);
 }
 
 /**
