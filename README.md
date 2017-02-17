@@ -3,10 +3,14 @@
 
 # DE HackU5 Student Repository
 
-### About
-Javascript code base used to scrape data from a designated website.
+### Features
 
-This Chrome plug-in is under active development and will continue to be modified and improved over time. The current release is an "alpha."
+ * Easily available through Chrome store
+ * Point-and-click GUI - no coding required
+ * Robust element matching
+ * Exportable .csv, .JSON types
+ * Notification of specific website changes
+ * Supports deep website-crawling (e.g. finding hidden webpage links and easter eggs)
 
 ### Requirements
 
@@ -14,7 +18,7 @@ Google Chrome web browser and internet access.
 
 ### Usage
 
-Plug-in users can specify what fields they want the plug-in to scrape for and then the user has the ability to export the scraped data into a .csv file.
+When installed, the user can right-click on the web page, select all of one element type (e.g. prices for products on Amazon) with ALT+click or select multiple element types (e.g. the product names AND their prices) from the webpage the user is on and stores it into a database that can be converted into a .csv file. 
 
 ### How to download
 
