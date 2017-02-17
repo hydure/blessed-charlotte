@@ -18,7 +18,6 @@ function ConvertToCSV(objArray) {
 
         str += line + '\r\n';
     }
-
     return str;
 }
 
