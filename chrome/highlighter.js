@@ -86,7 +86,7 @@ $(function(){
         callback: function(key, options) {
             switch(key){
                 case "MFS":
-                case "ASM":
+                case "watch":
                     // TODO: Maintain selectors
                     var module = {
                         name : (document.querySelector('title') && document.querySelector('title').innerText) || "",
@@ -112,8 +112,9 @@ $(function(){
             }
         },
         items: {
-            "MFS": {name: "New Module From Selection(s)" },
-            "ASM": {name: "Watch Selected Fields" },
+            //"MFS": {name: "New Module From Selection(s)" },
+            "watch": {name: "Watch Selected Fields" },
+            "link": {name: "Link Selected Field to Module Field" }
         }
     });
 

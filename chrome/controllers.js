@@ -29,6 +29,15 @@ app.controller("itemController", function($scope) {
             };
         }else{
             $scope.curr_data = data;
+            if(data.url){
+                $scope.crawler.crawlTo(data.url).then(function(spider){
+                    data.data.map(function(a){
+                        a.trueVal = spider.capture(a.value)[0].innerText;
+                        $scope.$apply();
+                        console.log(a.trueVal);
+                    });
+                });
+            }
         }
         $scope.status = windowId == windowId ? "" : windowId;
     }
@@ -46,10 +55,9 @@ app.controller("itemController", function($scope) {
             $scope.$apply();
         });
     }
-    
+
     chrome.storage.sync.get(["blessed-charlotte-webcrawler"], function(items){
         $scope.items = items["blessed-charlotte-webcrawler"] || [];
-        console.log($scope.items);
         $scope.$apply();
     });
 });

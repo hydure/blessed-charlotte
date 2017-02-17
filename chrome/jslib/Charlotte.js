@@ -80,7 +80,8 @@ class Spider{
     }
 
     capture(str){
-
+        //this.web.push({this.doc.querySelectorAll(str)})
+        return this.doc.querySelectorAll(str);
     }
     /**
      * Finds an element and returns information(?) about it

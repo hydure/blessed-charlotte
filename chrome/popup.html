@@ -42,8 +42,8 @@
             </div>
           </div>
           <div class="data-row data-fields" data-ng-repeat="data in curr_data.data track by $index" >
-            <input placeholder="Key" class="invput key" data-ng-model="data[$index].key" data-ng-change="changeIngredient($index)"> 
-            <input placeholder="Value" class="invput value" data-ng-model="data[$index].value" data-ng-change="changeIngredient($index)">
+            <input placeholder="Key" class="invput key" ng-model="data.key" data-ng-change="changeIngredient($index)"> 
+            <input placeholder="Value" class="invput value" ng-model="data.trueVal" data-ng-change="changeIngredient($index)">
           </div>
         </div>
         <button class="create-button" ng-click="createItem(curr_data); toggleNewWindow('.new-thing')">Save</button>
