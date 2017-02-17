@@ -14,3 +14,18 @@ Google Chrome web browser and internet access.
 ### Usage:
 
 Plug-in users can specify what fields they want the plug-in to scrape for and then the user has the ability to export the scraped data into a .csv file.
+
+###Charlotte API
+Method        | Parameters    | Description
+------------- | ------------- | ------------
+crawlTo       | url: string | Fetches a webpage. <br> Returns a Promise.
+mapSite       | url: string, <br> maximum: number | Gets all the urls on a websiteup to the inputed maximum <br> Returns a Promise.
+isvalidURL    | url: string | Returns True if the string is a valid URL.
+isSameOrigin  | url1: string, <br> url2: string | Returns True if two URLs are from the same origin.
+
+
+###Spider API
+Method        | Parameters    | Description
+------------- | ------------- | ------------
+capture       | selector: string | Gets information from an element specified by the selector. <br> Does not return.
+export        | as: string | Export information to a particular format.
