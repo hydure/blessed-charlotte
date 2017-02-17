@@ -8,16 +8,6 @@
  */
 var highlightClass = 'charlotte-web-highlit';
 var hasUI = false;
-var ACTIVATE = function(){
-    $(document).click(handler);
-    toggleUI();
-}
-
-var DEACTIVATE = function(){
-    $("."+highlightClass).toggleClass(highlightClass);
-    $(document).off("click", handler);
-    toggleUI();
-}
 
 var h_controls = document.createElement('div');
     h_controls.classList.add("charlotte-highlighter");
@@ -49,6 +39,17 @@ var handler = function(e){
         $("."+highlightClass).toggleClass(highlightClass);
         target.not('body, html').toggleClass( highlightClass );
     }
+}
+
+var ACTIVATE = function(){
+    $(document).click(handler);
+    toggleUI();
+}
+
+var DEACTIVATE = function(){
+    $("."+highlightClass).toggleClass(highlightClass);
+    $(document).off("click", handler);
+    toggleUI();
 }
 
 /**
