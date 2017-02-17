@@ -35,7 +35,7 @@ After choosing a search criteria, the extension will automatically run and give 
 
 This extension should work with the latest version of Google's Chrome browser.
 
-### Further REading on Web Scraping
+### Further Reading on Web Scraping
 
 https://en.wikipedia.org/wiki/Web_scraping
 http://docs.python-guide.org/en/latest/scenarios/scrape/
