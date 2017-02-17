@@ -20,7 +20,8 @@
   
   "content_scripts": [{
       "matches" : ["<all_urls>"],
-       "js": ["vendor/jquery-3.1.1.js", "highlighter.js", "jslib/Charlotte.js" ]
+       "js": ["vendor/jquery-3.1.1.js", "jslib/Charlotte.js", "highlighter.js" ],
+       "css":["highlighter.css"]
   }],
   
   "permissions": [
