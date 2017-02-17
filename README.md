@@ -46,3 +46,11 @@ We support collaboration with the open source community. Please refer to [CONTRI
 ### License
 
 This project is provided under the MIT licence. Please refer to [LICENSE.md](LICENSE.md) file for more detail.
+
+### Authors
+
+Eyosyas Dagnachew, Colin Lightfoot, Khauri McClain, Noor Rahman, Chris Suh
+
+### Advisor/Coach
+
+Steve Mortimer
