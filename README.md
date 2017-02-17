@@ -15,7 +15,7 @@
 
 ### Requirements
 
-Google Chrome web browser and internet access. This extension should work with the latest version of Google's Chrome browser. 
+Google Chrome web browser and internet access. This extension should work with the latest version of Google's Chrome browser: 55.0.2883. 
 
 ### How to Install
 
