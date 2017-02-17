@@ -37,7 +37,7 @@ This extension should work with the latest version of Google's Chrome browser.
 
 ### Further Reading on Web Scraping
 
-https://en.wikipedia.org/wiki/Web_scraping
-http://docs.python-guide.org/en/latest/scenarios/scrape/
-https://www.analyticsvidhya.com/blog/2015/10/beginner-guide-web-scraping-beautiful-soup-python/
+https://en.wikipedia.org/wiki/Web_scraping <br>
+http://docs.python-guide.org/en/latest/scenarios/scrape/ <br>
+https://www.analyticsvidhya.com/blog/2015/10/beginner-guide-web-scraping-beautiful-soup-python/ <br>
 https://automatetheboringstuff.com/chapter11/
