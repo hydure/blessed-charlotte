@@ -15,7 +15,6 @@
  */
 class Charlotte{
     constructor(){
-        this.queue = [];
     }
 
     crawlTo(url){
@@ -84,8 +83,13 @@ class Spider{
         this.web = []; // things collected by the spider
     }
 
-    capture(str){
+    toCSV(){
 
+    }
+
+    capture(str){
+        //this.web.push({this.doc.querySelectorAll(str)})
+        return this.doc.querySelectorAll(str);
     }
     /**
      * Finds an element and returns information(?) about it
@@ -97,15 +101,20 @@ class Spider{
      * Performs data collection and exports data to file
      */
     export(as){
-        switch(as){
+        switch(as ? as.toLowerCase() : "json"){
             case "csv":
-                return Papa.unparse(this.web);
                 break;
             case "xml":
+                break;
+            case "yaml":
+            case "yml":
+                break;
+            default:
                 break;
         }
     }
 }
 
 //var spider = new Charlotte();
-//    spider.mapSite("http://www.wm.edu/", 500).then(function(res){ console.log( res ); });
+//console.log(spider);
+    //spider.mapSite("http://www.wm.edu/", 500).then(function(res){ console.log( res ); });

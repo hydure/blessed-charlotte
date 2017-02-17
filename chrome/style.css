@@ -104,8 +104,9 @@ body {
     width : 100%;
     height : 20px;
 }
-.new-thing{
+.module{
     display : none;
+    justify-content : space-between;
     position : absolute;
     top : 0px;
     left : 0px;
@@ -114,6 +115,49 @@ body {
     background-color: white;
     z-index : 99999;
 }
-.new-thing.open{
+.module-content{
+    flex : 1 1 auto;
+}
+module-close{
+    margin : 5px;
+    cursor: default;    
+}
+.module-close:hover{
+    background-color :rgba(0,0,0,.05)
+}
+.module.open{
     display : flex ;
+}
+.data-title{
+    display : flex;
+    justify-content: center;
+    margin-top : 20px;
+}
+.data-description-input{
+    text-align : center;
+    width : 100%;
+}
+.data-title-input{
+    width : 100%;
+    font-size : 1.5em;
+    text-align : center;
+}
+.data-fields{
+    display : flex;
+    margin-top : 10px;
+}
+.data-fields input{
+    flex : 1 1 auto;
+    font-size : 1.2em;
+}
+.invput{
+    border: 1px solid transparent;
+}
+.links-content{
+    height : 400px;
+    padding: 5px;
+    overflow : auto;
+}
+.map-url{
+    display : block;
 }

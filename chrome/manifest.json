@@ -10,7 +10,16 @@
     "default_popup": "popup.html",
     "default_title": "Charlotte's Webscraper"
   },
-
+ 
+  "background": {
+    "scripts": ["notifications.js","eventpage.js"],
+    "persistent": true
+  },
+ 
+ "icons": {
+   "16": "icon.png"
+ },
+ 
   "options_ui": {
     "page": "options.html",
     "chrome_style": true
@@ -20,11 +29,13 @@
   
   "content_scripts": [{
       "matches" : ["<all_urls>"],
-       "js": ["vendor/jquery-3.1.1.js", "jslib/Charlotte.js", "highlighter.js" ],
-       "css":["highlighter.css"]
+       "js": ["vendor/jquery-1.8.2.min.js", "vendor/jquery.ui.position.js", "vendor/contextMenu.js",  "vendor/screen.js", "jslib/Charlotte.js", "highlighter.js" ],
+       "css":["vendor/jquery.contextMenu.css","highlighter.css"]
   }],
   
   "permissions": [
+    "notifications",
+    "contextMenus",
     "activeTab",
     "https://ajax.googleapis.com/*",
     "storage"
