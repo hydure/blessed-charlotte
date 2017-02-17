@@ -42,11 +42,14 @@
             </div>
           </div>
           <div class="data-row data-fields" data-ng-repeat="data in curr_data.data track by $index" >
-            <input placeholder="Key" class="invput key" ng-model="data.key" data-ng-change="changeIngredient($index)"> 
-            <input placeholder="Value" class="invput value" ng-model="data.trueVal" data-ng-change="changeIngredient($index)">
+            <input placeholder="Field" class="invput key" ng-model="data.key" > 
+            <div class="invput value">{{data.trueVal}}</div>
           </div>
         </div>
-        <button class="create-button" ng-click="createItem(curr_data); toggleNewWindow('.new-thing')">Save</button>
+        <div class='item-controls'>
+          <button class="create-button" ng-click="">Export</button>
+          <button class="create-button" ng-click="createItem(curr_data); toggleNewWindow('.new-thing')">Save</button>
+        </div>
       </div>
       <div class="instructions" ng-hide="items.length">
         <p> No modules yet. Click "New" to add one. </p>
@@ -56,8 +59,8 @@
           <div class="type-img"><img src="images/bell.png" style="width:100%"></div>
         </div>
         <div class="item-inner">
-          <div> {{item.name}} </div>
-          <div> {{item.description}} </div>
+          <div class='item-name'> {{item.name | limitTo:20}} <span ng-if="item.name.length > 20">...</span> </div> 
+          <div class='item-descr'> {{item.description | limitTo:25}} <span ng-if="item.description.length > 25">...</span> </div>
         </div>
         <div class="delete" ng-click="removeModule(item)">×</div>
       </a>
@@ -67,8 +70,6 @@
       <button class="ui-button" ng-click="toggleNewWindow('.tools')">Tools</button>
       <button class="ui-button" ng-click="toggleNewWindow('.new-thing')">New</button>
     </div>
-    <!-- -->
-
     </div>
     <script src="jslib/Charlotte.js"></script>
     <script src="controllers.js"></script>

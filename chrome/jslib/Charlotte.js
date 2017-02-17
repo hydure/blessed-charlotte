@@ -103,6 +103,7 @@ class Spider{
     export(as){
         switch(as ? as.toLowerCase() : "json"){
             case "csv":
+                return Papa.unparse(this.web);
                 break;
             case "xml":
                 break;

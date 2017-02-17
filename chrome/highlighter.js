@@ -94,7 +94,7 @@ $(function(){
                         url : window.location.href,
                         data : selectors.map(function(a){
                             return {
-                                key : a,
+                                key : null,
                                 value : a
                             }
                         })

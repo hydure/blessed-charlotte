@@ -161,3 +161,28 @@ module-close{
 .map-url{
     display : block;
 }
+.data-fields{
+    display : flex;
+    flex-direction : row;
+    justify-content : space-around;
+    padding : 0px 10px;
+    margin : 15px 0px;
+}
+.invput.key{
+    width : 75px;
+    padding-right : 5px;
+}
+invput.value{
+    height : 150px;
+}
+.invput.key, .invput.value{
+    flex : 1 1 auto;
+}
+.item-controls{
+    display : flex;
+    flex-direction : row;
+    justify-content : center;
+}
+.item-controls button{
+    flex : 1 1 auto;
+}
