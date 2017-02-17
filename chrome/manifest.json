@@ -10,7 +10,16 @@
     "default_popup": "popup.html",
     "default_title": "Charlotte's Webscraper"
   },
-
+ 
+  "background": {
+    "scripts": ["eventpage.js"],
+    "persistent": true
+  },
+ 
+ "icons": {
+   "16": "icon.png"
+ },
+ 
   "options_ui": {
     "page": "options.html",
     "chrome_style": true
@@ -25,6 +34,7 @@
   }],
   
   "permissions": [
+    "contextMenus",
     "activeTab",
     "https://ajax.googleapis.com/*",
     "storage"

@@ -32,6 +32,18 @@ var DEACTIVATE = function(){
     $(document).off("click", handler);
 }
 
+chrome.runtime.onMessage.addListener(
+    function(request, sender, sendResponse) {
+    if (request.status == "activate"){
+        ACTIVATE();
+        sendResponse({farewell: "goodbye"});
+    }
+    else if( request.status == "deactivate" ){
+        DEACTIVATE();
+        sendResponse({farewell: "goodbye"});
+    }
+});
+
 
 jQuery.fn.extend({
     getPath: function () {
