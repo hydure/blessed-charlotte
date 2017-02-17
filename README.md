@@ -9,7 +9,7 @@
  * Easily available through Chrome store
  * Point-and-click GUI - no coding required
  * Robust element matching
- * Exportable .csv, .JSON types
+ * Exportable CSV, JSON, XML types
  * Notification of specific website changes
  * Supports deep web penetration searching (e.g. finding hidden webpage links and easter eggs)
 
