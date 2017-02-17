@@ -2,7 +2,7 @@
 ![alt tag](https://github.com/dominionenterprises/blessed-charlotte/blob/master/download.png)  ![alt-tag](https://github.com/dominionenterprises/blessed-charlotte/blob/master/charlotte.jpg)
 
 # Charlotte Webscraper
-*A HackU5 project created by the #blessed team*
+*A HackU5 project created by the #blessed team. Event sponsored by Dominion Enterprises*
 
 ### Features
 
