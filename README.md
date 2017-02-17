@@ -26,7 +26,7 @@ This shows you how to generate a site map using Charlotte <br><br>
 
 This shows you how to select different elements on the page 
 and Charlotte will track these elements for changes and 
-notify you via the export configuration
+notify you via the export configuration <br><br>
 ![](preview-readme-cropped.gif)
 
 ### Requirements
