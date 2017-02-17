@@ -6,7 +6,7 @@
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
 [![Github All Releases](https://img.shields.io/github/downloads/dominionenterprises/blessed-charlotte/total.svg)]()
 
-![alt tag](https://github.com/dominionenterprises/blessed-charlotte/blob/master/download.png)  ![alt-tag](https://github.com/dominionenterprises/blessed-charlotte/blob/master/charlotte.jpg)
+![](./img/download.png)  ![](./img/charlotte.jpg)
 
 ### Features
 
@@ -20,14 +20,14 @@
 ### How to Scrape All Links from a Page
 
 This shows you how to generate a site map using Charlotte <br><br>
-![](site-map-preview-cropped.gif)
+![](./img/site-map-preview-cropped.gif)
 
 ### How to Select Elements 
 
 This shows you how to select different elements on the page 
 and Charlotte will track these elements for changes and 
 notify you via the export configuration <br><br>
-![](preview-readme-cropped.gif)
+![](./img/preview-readme-cropped.gif)
 
 ### Requirements
 
